@@ -522,22 +522,28 @@ if ("ZPrime" in cstr) :
         ATLASExpectedXS
         )
     markerExp.SetPointError(0,
-        0.048,0.048, #x unc
+        0.045,0.045, #x unc
         0.1/139000/0.01, #negative unc
         1.1/139000/0.01, #positive unc
         )
-    markerExp.SetMarkerStyle(72)
-    markerExp.SetMarkerSize(1.5)
-    markerExp.SetMarkerColor(ROOT.kBlack)
-    markerExp.SetLineWidth(2)
+    # markerExp.SetMarkerStyle(72)
+    # markerExp.SetMarkerSize(1.5)
+    # markerExp.SetMarkerColor(ROOT.kBlack)
+    # markerExp.SetLineWidth(2)
     markerExp.SetFillColor(ROOT.kGray)
-    markerExp.Draw("P2")
+    markerExp.Draw("L2")
+    markerExpLine = ROOT.TLine()
+    markerExpLine.SetLineColor(1)
+    markerExpLine.SetLineWidth(1)
+    markerExpLine.SetLineStyle(1)
+    markerExpLine.DrawLine(5.2-0.045,ATLASExpectedXS,5.2+0.045, ATLASExpectedXS )
 
     markerObs = ROOT.TGraph()
     markerObs.SetPoint(0,5.2,
         ATLASObservedXS
         )
-    markerObs.SetMarkerStyle(21)
+    # markerObs.SetMarkerStyle(21)
+    markerObs.SetMarkerStyle(70)
     markerObs.SetMarkerSize(1.5)
     markerObs.SetMarkerColor(ROOT.kBlack)
     markerObs.Draw("P")
